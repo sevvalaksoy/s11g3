@@ -50,8 +50,9 @@ const App = (props) => {
   };
 
   const addToFavorites = (movie) => {
-    const newFavs = favs.includes(movie) ? favs : [...favs, movie];
-    setFavs(newFavs);
+    if (!favs.find((favori) => favori.id == movie.id)) {
+      setFavs([...favs, movie]);
+    }
   };
 
   const changeMode = () => {
